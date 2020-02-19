@@ -1,0 +1,17 @@
+<%= semantic_form_for @todo_list do |f| %>
+  <% f.inputs do %>
+    <%= f.input :name %>
+    <h3>Todo Items</h3>
+    <div id='todo_items'>
+      <%= f.semantic_fields_for :todo_items do |todo_item| %>
+        <%= render partial: 'todo_item_fields', locals: {:f => todo_item} %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add todo', f, :todo_items %>
+      </div>
+    </div>
+    <%= f.actions do %>
+      <%= f.submit 'Save' %>
+    <% end %>
+  <% end %>
+<% end %>

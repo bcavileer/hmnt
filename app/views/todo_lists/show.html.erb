@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @todo_list.name %>
+</p>
+
+<ul class="todo-items">
+  <% @todo_list.todo_items.each do |todo_item| %>
+    <li class="<%= todo_item.status %>"><%= todo_item.description %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+<%= link_to 'Back', todo_lists_path %>
